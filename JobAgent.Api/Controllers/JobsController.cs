@@ -24,7 +24,7 @@ public class JobsController : ControllerBase
         {
             Title = request.Title,
             Company = request.Company,
-            Location = request.Location,
+            Location = request.Location, 
             Url = request.Url
         };
 

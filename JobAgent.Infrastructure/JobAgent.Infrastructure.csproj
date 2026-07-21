@@ -16,4 +16,8 @@
     <ProjectReference Include="..\JobAgent.Core\JobAgent.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 </Project>
