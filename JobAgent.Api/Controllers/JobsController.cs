@@ -1,5 +1,6 @@
 ﻿using JobAgent.Api.DTOs;
 using JobAgent.Core.Entities;
+using JobAgent.Core.Interfaces;
 using JobAgent.Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,13 +11,12 @@ namespace JobAgent.Api.Controllers;
 [Route("api/[controller]")]
 public class JobsController : ControllerBase
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IJobService _jobService;
 
-    public JobsController(ApplicationDbContext context)
+    public JobsController(IJobService jobService)
     {
-        _context = context;
+        _jobService = jobService;
     }
-
     [HttpPost]
     public async Task<IActionResult> Create(CreateJobRequest request)
     {
@@ -28,16 +28,14 @@ public class JobsController : ControllerBase
             Url = request.Url
         };
 
-        _context.Jobs.Add(job);
+        var createdJob = await _jobService.CreateAsync(job);
 
-        await _context.SaveChangesAsync();
-
-        return Ok(job);
+        return Ok(createdJob);
     }
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var jobs = await _context.Jobs.ToListAsync();
+        var jobs = await _jobService.GetAllAsync();
 
         return Ok(jobs);
     }

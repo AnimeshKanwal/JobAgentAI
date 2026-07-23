@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\JobAgent.Application\JobAgent.Application.csproj" />
     <ProjectReference Include="..\JobAgent.Core\JobAgent.Core.csproj" />
     <ProjectReference Include="..\JobAgent.Infrastructure\JobAgent.Infrastructure.csproj" />
   </ItemGroup>
@@ -19,10 +20,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.29" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

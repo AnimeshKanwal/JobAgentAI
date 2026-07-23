@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.29" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.29" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\JobAgent.Core\JobAgent.Core.csproj" />
   </ItemGroup>
 
